@@ -102,3 +102,53 @@ Health Classification
 Alerts & Recommendations
         ↓
 Maintenance Action
+
+🎯 Target Users
+
+MachineGuard is designed for:
+
+Small and Medium Manufacturing Units
+Factory Operators
+Maintenance Teams
+Plant Managers
+Industrial Engineers
+MSMEs
+💼 Business Potential
+
+MachineGuard aims to make predictive maintenance more accessible to smaller manufacturing units that may not be able to afford expensive enterprise solutions.
+
+The platform can evolve into a subscription-based industrial monitoring service with different plans based on:
+
+Number of machines
+Data monitoring frequency
+Analytics features
+Alerting capabilities
+Number of factories
+🏆 Hackathon
+
+HACKDAY 1.0
+
+Theme: TECH FOR A BETTER TOMORROW
+
+Project: MachineGuard
+
+Made By:
+Aishwarya Suryawanshi
+📌 Project Status
+
+Current Status: Hackathon MVP
+
+The current version demonstrates:
+
+Machine health monitoring
+Statistical vibration analysis
+Anomaly detection
+Health classification
+Alerts
+Maintenance recommendations
+Simulated live monitoring
+Machine management
+📄 License
+
+This project was developed as a hackathon project.
+
