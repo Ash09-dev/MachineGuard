@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MachineGuard | Dashboard</title>
+    
+    <link rel="stylesheet" href="machineguard-pages.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script> 
+</head> 
+ 
+<body> 
+ 
+     <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">MachineGuard</div>
+        <div class="brand-tag">Predictive Maintenance</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="machines.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Machines
+      </a>
+      <a href="alerts.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Alerts
+      </a>
+      <a href="maintenance.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Maintenance
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button onclick="Auth.logout()" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT --> 
+  <main class="main"> 
+    <!-- TOP BAR --> 
+    <header class="topbar"> 
+      <div> 
+                <p class="small-text">Factory Monitoring</p> 
+                <h1>Dashboard</h1> 
+            </div> 
+
+            <div class="top-actions"> 
+                <button class="notification" onclick="window.location.href='alerts.html'"> 
+                    <i data-lucide="bell"></i> 
+                    <span></span> 
+                </button> 
+
+                <div class="profile"> 
+                    <div class="avatar">A</div> 
+                    <div> 
+                        <strong>Admin</strong> 
+                        <small>Plant Manager</small> 
+                    </div> 
+                </div> 
+            </div> 
+        </header> 
+
+        <!-- HERO --> 
+        <section class="hero"> 
+            <div> 
+                <p class="eyebrow">MACHINE INTELLIGENCE</p> 
+                <h2>Predict problems<br>before breakdown.</h2> 
+                <p>MachineGuard analyzes machine behavior and provides early maintenance warnings.</p> 
+
+                <button class="primary-btn" onclick="document.getElementById('machines').scrollIntoView({ behavior: 'smooth' });"> 
+                    View Machine Health 
+                    <i data-lucide="arrow-right"></i> 
+                </button> 
+            </div> 
+
+            <div class="hero-icon"> 
+                <i data-lucide="activity"></i> 
+            </div> 
+        </section> 
+
+        <!-- STAT CARDS --> 
+        <section class="stats"> 
+            <div class="stat-card"> 
+                <div class="stat-icon blue"> 
+                    <i data-lucide="factory"></i> 
+                </div> 
+                <div> 
+                    <span>Total Machines</span> 
+                    <h3 id="totalMachines">0</h3> 
+                </div> 
+            </div> 
+
+            <div class="stat-card"> 
+                <div class="stat-icon green"> 
+                    <i data-lucide="circle-check"></i> 
+                </div> 
+                <div> 
+                    <span>Healthy</span> 
+                    <h3 id="healthyMachines">0</h3> 
+                </div> 
+            </div> 
+
+            <div class="stat-card"> 
+                <div class="stat-icon yellow"> 
+                    <i data-lucide="triangle-alert"></i> 
+                </div> 
+                <div> 
+                    <span>Warning</span> 
+                    <h3 id="warningMachines">0</h3> 
+                </div> 
+            </div> 
+
+            <div class="stat-card"> 
+                <div class="stat-icon red"> 
+                    <i data-lucide="circle-x"></i> 
+                </div> 
+                <div> 
+                    <span>Critical</span> 
+                    <h3 id="criticalMachines">0</h3> 
+                </div> 
+            </div> 
+        </section> 
+
+        <!-- MACHINE SECTION --> 
+        <section id="machines"> 
+            <div class="section-heading"> 
+                <div> 
+                    <h2>Machine Health</h2> 
+                    <p>Current condition of monitored equipment</p> 
+                </div> 
+
+                <div style="display: flex; gap: 10px;">
+                    <button class="filter-btn" onclick="window.location.href='machines.html'"> 
+                        <i data-lucide="plus"></i> 
+                        Manage Machines 
+                    </button> 
+                </div>
+            </div> 
+
+            <!-- DYNAMIC GRID FOR ALL MACHINES -->
+            <div class="machine-grid" id="machineGrid"> 
+                <!-- Dynamically rendered via renderAllMachines() in script.js -->
+            </div> 
+        </section>
+
+        <!-- RECOMMENDED ACTIONS --> 
+        <section class="recommendations-section"> 
+            <div class="section-heading"> 
+                <div> 
+                    <span class="section-label">AI MAINTENANCE</span> 
+                    <h2>Recommended Actions</h2> 
+                    <p>Maintenance actions generated from machine health analysis.</p> 
+                </div> 
+            </div> 
+
+            <div id="recommendationsList" class="recommendations-list"> 
+                <!-- Dynamic Recommendations generated by script.js --> 
+            </div> 
+        </section> 
+    </main> 
+
+    <!-- MACHINE ANALYSIS MODAL --> 
+    <div id="analysisModal" class="modal"> 
+        <div class="analysis-modal"> 
+            <div class="analysis-header"> 
+                <div> 
+                    <p class="eyebrow dark-eyebrow">MACHINE ANALYSIS</p> 
+                    <h2 id="modalMachine">--</h2> 
+                    <p class="machine-location">Production Line • Motor Unit</p> 
+                </div> 
+
+                <button class="close-btn" onclick="closeModal()">×</button> 
+            </div> 
+
+            <div class="health-overview"> 
+                <div id="healthCircle" class="health-circle"> 
+                    <div> 
+                        <strong id="modalScore">0%</strong> 
+                        <span>Health</span> 
+                    </div> 
+                </div> 
+
+                <div class="health-summary"> 
+                    <span class="status-badge" id="riskBadge">UNKNOWN</span> 
+                    <h3 id="statusTitle">Analyzing status...</h3> 
+                    <p id="statusDescription">Machine vibration evaluation in progress.</p> 
+                </div> 
+            </div> 
+
+            <div class="metrics-grid"> 
+                <div class="metric-card"> 
+                    <span>Current RMS</span> 
+                    <span id="currentRMSValue">0.00</span> 
+                    <small>mm/s</small> 
+                </div> 
+
+                <div class="metric-card"> 
+                    <span>Baseline RMS</span> 
+                    <span id="baselineRMSValue">0.00</span> 
+                    <small>mm/s</small> 
+                </div> 
+
+                <div class="metric-card danger-metric"> 
+                    <span>RMS Change</span> 
+                    <span id="rmsChangeValue">+0%</span> 
+                    <small>vs baseline</small> 
+                </div> 
+
+                <div class="metric-card"> 
+                    <span>Anomaly Score</span> 
+                    <span id="anomalyScoreValue">0.00</span> 
+                    <small>deviation level</small> 
+                </div> 
+            </div> 
+
+            <div class="possible-issue"> 
+                <div class="issue-icon"> 
+                    <i data-lucide="search"></i> 
+                </div> 
+                <div> 
+                    <span>Possible issue</span> 
+                    <h3 id="possibleIssue">Evaluating Machine...</h3> 
+                </div> 
+            </div> 
+
+            <div class="recommendation new-recommendation"> 
+                <div class="recommendation-icon"> 
+                    <i data-lucide="wrench"></i> 
+                </div> 
+                <div> 
+                    <strong>Recommended Action</strong> 
+                    <p id="recommendedAction">Continue routine monitoring.</p> 
+                </div> 
+            </div> 
+
+            <div class="analysis-footer"> 
+                <button onclick="closeModal()">Close Analysis</button> 
+            </div> 
+        </div> 
+    </div> 
+
+    <!-- SCRIPTS --> 
+    <script src="auth.js"></script> 
+    <script src="data.js"></script> 
+    <script src="script.js"></script> 
+    <script> 
+        lucide.createIcons(); 
+    </script> 
+</body> 
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics | MachineGuard</title>
+  <link rel="stylesheet" href="machineguard-pages.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">MachineGuard</div>
+        <div class="brand-tag">Predictive Maintenance</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="machines.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Machines
+      </a>
+      <a href="alerts.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Alerts
+      </a>
+      <a href="maintenance.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Maintenance
+      </a>
+      <a href="analytics.html" class="nav-item active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button onclick="Auth.logout()" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="top-header">
+      <div>
+        <span class="breadcrumb">Intelligence & Performance</span>
+        <h1 class="page-title">Predictive Analytics</h1>
+      </div>
+      <div class="user-profile">
+        <div class="user-avatar">A</div>
+        <div>
+          <div class="user-name">Admin</div>
+          <div class="user-role">Plant Manager</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content-body">
+      <!-- High-level Metrics -->
+      <div class="analytics-metrics-grid">
+        <div class="metric-card">
+          <span class="metric-card-title">Average Fleet Health</span>
+          <span class="metric-card-val" id="avgHealthVal">--</span>
+          <span class="metric-card-sub text-healthy">Optimal efficiency threshold</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-card-title">Monitored Assets</span>
+          <span class="metric-card-val" id="totalAssetsVal">0</span>
+          <span class="metric-card-sub">Active telemetry feeds</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-card-title">Fleet Vibration Variance</span>
+          <span class="metric-card-val text-warning" id="avgDeviationVal">--</span>
+          <span class="metric-card-sub">Mean RMS deviation above baseline</span>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-layout">
+        <!-- Line Chart: Vibration Trend -->
+        <div class="chart-box main-chart">
+          <div class="chart-header">
+            <h3>Aggregate Vibration RMS Trend (Last 60 mins)</h3>
+            <span class="badge-subtitle">REAL-TIME SENSOR FEED</span>
+          </div>
+          <canvas id="rmsTrendChart" height="220"></canvas>
+        </div>
+
+        <!-- Risk Breakdown Card -->
+        <div class="chart-box side-chart">
+          <div class="chart-header">
+            <h3>Health Distribution</h3>
+          </div>
+          <div class="health-breakdown-list" id="healthBreakdown">
+            <!-- Dynamically Rendered -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="machine-store.js"></script>
+  <script>
+    Auth.checkAuth();
+
+    function initAnalytics() {
+      const machines = MachineStore.getMachines();
+
+      // 1. Calculate Average Fleet Health
+      const avgHealth = Math.round(machines.reduce((acc, m) => acc + m.healthScore, 0) / machines.length);
+      document.getElementById('avgHealthVal').textContent = `${avgHealth}%`;
+
+      // 2. Total Monitored Assets
+      document.getElementById('totalAssetsVal').textContent = machines.length;
+
+      // 3. Average RMS Deviation
+      const totalDev = machines.reduce((acc, m) => {
+        const variance = ((m.currentRMS - m.baselineRMS) / m.baselineRMS) * 100;
+        return acc + variance;
+      }, 0);
+      const avgDev = (totalDev / machines.length).toFixed(1);
+      document.getElementById('avgDeviationVal').textContent = `+${avgDev}%`;
+
+      // 4. Render Health Distribution Breakdown
+      const countHealthy = machines.filter(m => m.status === 'Healthy').length;
+      const countWarning = machines.filter(m => m.status === 'Warning').length;
+      const countCritical = machines.filter(m => m.status === 'Critical').length;
+
+      const breakdownEl = document.getElementById('healthBreakdown');
+      breakdownEl.innerHTML = `
+        <div class="dist-item">
+          <span class="dist-label"><span class="dot healthy"></span> Healthy</span>
+          <span class="dist-val">${countHealthy} (${Math.round((countHealthy/machines.length)*100)}%)</span>
+        </div>
+        <div class="dist-item">
+          <span class="dist-label"><span class="dot warning"></span> Warning</span>
+          <span class="dist-val">${countWarning} (${Math.round((countWarning/machines.length)*100)}%)</span>
+        </div>
+        <div class="dist-item">
+          <span class="dist-label"><span class="dot critical"></span> Critical</span>
+          <span class="dist-val">${countCritical} (${Math.round((countCritical/machines.length)*100)}%)</span>
+        </div>
+      `;
+
+      // 5. Draw RMS Trend Line Chart on Canvas
+      drawTrendChart(machines);
+    }
+
+    function drawTrendChart(machines) {
+      const canvas = document.getElementById('rmsTrendChart');
+      const ctx = canvas.getContext('2d');
+      
+      // Auto-fit canvas width to container
+      canvas.width = canvas.parentElement.clientWidth - 40;
+
+      const width = canvas.width;
+      const height = canvas.height;
+      
+      // Calculate overall average current RMS
+      const avgCurrentRMS = machines.reduce((a, b) => a + b.currentRMS, 0) / machines.length;
+
+      // Simulated data points over 60 mins
+      const points = [
+        avgCurrentRMS * 0.75,
+        avgCurrentRMS * 0.78,
+        avgCurrentRMS * 0.72,
+        avgCurrentRMS * 0.85,
+        avgCurrentRMS * 0.88,
+        avgCurrentRMS * 0.95,
+        avgCurrentRMS
+      ];
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Gridlines
+      ctx.strokeStyle = '#e2e8f0';
+      ctx.lineWidth = 1;
+      for (let i = 1; i <= 3; i++) {
+        const y = (height / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // Plot Line
+      ctx.strokeStyle = '#1e40af';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+
+      const step = width / (points.length - 1);
+      const maxVal = Math.max(...points) * 1.2;
+
+      points.forEach((pt, index) => {
+        const x = index * step;
+        const y = height - ((pt / maxVal) * (height - 30));
+        if (index === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+
+      // Plot Data Points
+      points.forEach((pt, index) => {
+        const x = index * step;
+        const y = height - ((pt / maxVal) * (height - 30));
+        ctx.fillStyle = '#1e40af';
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    window.addEventListener('resize', initAnalytics);
+    initAnalytics();
+  </script>
+</body>
+</html>

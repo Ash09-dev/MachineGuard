@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machines | MachineGuard</title>
+  <link rel="stylesheet" href="machineguard-pages.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">MachineGuard</div>
+        <div class="brand-tag">Predictive Maintenance</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="machines.html" class="nav-item active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Machines
+      </a>
+      <a href="alerts.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Alerts
+      </a>
+      <a href="maintenance.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Maintenance
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button onclick="Auth.logout()" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="top-header">
+      <div>
+        <span class="breadcrumb">Equipment Monitoring</span>
+        <h1 class="page-title">Machines Inventory</h1>
+      </div>
+      <div class="user-profile">
+        <div class="user-avatar">A</div>
+        <div>
+          <div class="user-name">Admin</div>
+          <div class="user-role">Plant Manager</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content-body">
+      <!-- Toolbar -->
+      <div class="action-bar">
+        <div class="search-filter-box">
+          <input type="text" id="searchInput" placeholder="Search machine name or ID..." onkeyup="renderMachines()">
+          <select id="statusFilter" onchange="renderMachines()">
+            <option value="ALL">All Statuses</option>
+            <option value="Healthy">Healthy</option>
+            <option value="Warning">Warning</option>
+            <option value="Critical">Critical</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="openAddModal()">
+          + Add Machine
+        </button>
+      </div>
+
+      <!-- Machine Grid / List -->
+      <div class="machines-grid" id="machinesGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Add Machine Modal -->
+  <div id="addModal" class="modal-overlay hidden">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Add New Machine</h3>
+        <button class="close-btn" onclick="closeAddModal()">&times;</button>
+      </div>
+      <form id="addMachineForm" onsubmit="handleAddMachine(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Machine Name *</label>
+            <input type="text" id="mName" placeholder="e.g. Motor-05, Compressor-01" required>
+          </div>
+          <div class="form-group">
+            <label>Machine ID *</label>
+            <input type="text" id="mId" placeholder="e.g. CMP-005" required>
+          </div>
+          <div class="form-group">
+            <label>Machine Type *</label>
+            <input type="text" id="mType" placeholder="e.g. Reciprocating Compressor, Conveyor" required>
+          </div>
+          <div class="form-group">
+            <label>Location *</label>
+            <input type="text" id="mLocation" placeholder="e.g. Assembly Line 2, Bay C" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Baseline RMS (mm/s) *</label>
+              <input type="number" step="0.01" id="mBaseline" placeholder="2.10" required>
+            </div>
+            <div class="form-group">
+              <label>Current RMS (mm/s) *</label>
+              <input type="number" step="0.01" id="mCurrent" placeholder="2.45" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Machine</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Analysis Quick Modal -->
+  <div id="analysisModal" class="modal-overlay hidden">
+    <div class="modal-container modal-lg">
+      <div class="modal-header">
+        <div>
+          <span class="badge-subtitle">MACHINE ANALYSIS</span>
+          <h2 id="modalMachineName">Motor-01</h2>
+        </div>
+        <button class="close-btn" onclick="closeAnalysisModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="analysisContent">
+        <!-- Injected via script -->
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="machine-store.js"></script>
+  <script>
+    // Guard page access
+    Auth.checkAuth();
+
+    function renderMachines() {
+      const grid = document.getElementById('machinesGrid');
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const filter = document.getElementById('statusFilter').value;
+      
+      const machines = MachineStore.getMachines();
+      grid.innerHTML = '';
+
+      const filtered = machines.filter(m => {
+        const matchesSearch = m.name.toLowerCase().includes(search) || m.id.toLowerCase().includes(search);
+        const matchesStatus = filter === 'ALL' || m.status === filter;
+        return matchesSearch && matchesStatus;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state">No machines match your query.</div>`;
+        return;
+      }
+
+      filtered.forEach(m => {
+        const statusClass = m.status.toLowerCase();
+        const card = document.createElement('div');
+        card.className = `machine-card ${statusClass}`;
+        card.innerHTML = `
+          <div class="card-header">
+            <div>
+              <div class="machine-id">${m.id}</div>
+              <h3 class="machine-title">${m.name}</h3>
+              <p class="machine-sub">${m.type} • ${m.location}</p>
+            </div>
+            <span class="status-badge ${statusClass}">${m.status}</span>
+          </div>
+
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Baseline RMS</span>
+              <span class="metric-value">${m.baselineRMS.toFixed(2)} mm/s</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Current RMS</span>
+              <span class="metric-value">${m.currentRMS.toFixed(2)} mm/s</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Health Score</span>
+              <span class="metric-value ${statusClass}">${m.healthScore}%</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-outline" onclick="analyzeMachine('${m.id}')">Analyze</button>
+            ${m.isCustom ? `<button class="btn btn-danger-outline" onclick="removeMachine('${m.id}')">Remove</button>` : ''}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openAddModal() {
+      document.getElementById('addModal').classList.remove('hidden');
+    }
+
+    function closeAddModal() {
+      document.getElementById('addModal').classList.add('hidden');
+      document.getElementById('addMachineForm').reset();
+    }
+
+    function handleAddMachine(e) {
+      e.preventDefault();
+      const newMachine = {
+        name: document.getElementById('mName').value.trim(),
+        id: document.getElementById('mId').value.trim(),
+        type: document.getElementById('mType').value.trim(),
+        location: document.getElementById('mLocation').value.trim(),
+        baselineRMS: document.getElementById('mBaseline').value,
+        currentRMS: document.getElementById('mCurrent').value
+      };
+
+      MachineStore.addMachine(newMachine);
+      closeAddModal();
+      renderMachines();
+    }
+
+    function removeMachine(id) {
+      if (confirm(`Are you sure you want to remove machine ${id}?`)) {
+        MachineStore.removeMachine(id);
+        renderMachines();
+      }
+    }
+
+    function analyzeMachine(id) {
+      const machines = MachineStore.getMachines();
+      const m = machines.find(item => item.id === id);
+      if (!m) return;
+
+      const variance = (((m.currentRMS - m.baselineRMS) / m.baselineRMS) * 100).toFixed(1);
+      
+      document.getElementById('modalMachineName').textContent = m.name;
+      document.getElementById('analysisContent').innerHTML = `
+        <div class="analysis-summary">
+          <div class="health-circle ${m.status.toLowerCase()}">
+            <span class="score">${m.healthScore}%</span>
+            <span class="label">Health</span>
+          </div>
+          <div class="analysis-text">
+            <h4>Status: <span class="text-${m.status.toLowerCase()}">${m.status.toUpperCase()}</span></h4>
+            <p>${m.status === 'Healthy' ? 'Vibration is within normal operational bounds.' : 'Vibration deviation detected above baseline limits.'}</p>
+          </div>
+        </div>
+
+        <div class="analysis-grid">
+          <div class="analysis-card">
+            <span class="label">Current RMS</span>
+            <span class="val">${m.currentRMS} mm/s</span>
+          </div>
+          <div class="analysis-card">
+            <span class="label">Baseline RMS</span>
+            <span class="val">${m.baselineRMS} mm/s</span>
+          </div>
+          <div class="analysis-card">
+            <span class="label">RMS Change</span>
+            <span class="val ${variance >= 0 ? 'text-critical' : 'text-healthy'}">${variance > 0 ? '+' : ''}${variance}%</span>
+          </div>
+        </div>
+      `;
+      document.getElementById('analysisModal').classList.remove('hidden');
+    }
+
+    function closeAnalysisModal() {
+      document.getElementById('analysisModal').classList.add('hidden');
+    }
+
+    // Initial render
+    renderMachines();
+  </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maintenance | MachineGuard</title>
+  <link rel="stylesheet" href="machineguard-pages.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">MachineGuard</div>
+        <div class="brand-tag">Predictive Maintenance</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="machines.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Machines
+      </a>
+      <a href="alerts.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Alerts
+      </a>
+      <a href="maintenance.html" class="nav-item active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Maintenance
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button onclick="Auth.logout()" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="top-header">
+      <div>
+        <span class="breadcrumb">Workforce Operations</span>
+        <h1 class="page-title">Maintenance Schedule</h1>
+      </div>
+      <div class="user-profile">
+        <div class="user-avatar">A</div>
+        <div>
+          <div class="user-name">Admin</div>
+          <div class="user-role">Plant Manager</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content-body">
+      <!-- Toolbar -->
+      <div class="action-bar">
+        <div class="search-filter-box">
+          <select id="statusFilter" onchange="renderWorkOrders()">
+            <option value="ALL">All Statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <select id="priorityFilter" onchange="renderWorkOrders()">
+            <option value="ALL">All Priorities</option>
+            <option value="High">High Priority</option>
+            <option value="Medium">Medium Priority</option>
+            <option value="Low">Low Priority</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="openScheduleModal()">
+          + Schedule Maintenance
+        </button>
+      </div>
+
+      <!-- Work Orders Table -->
+      <div class="table-container">
+        <table class="alerts-table">
+          <thead>
+            <tr>
+              <th>Work Order ID</th>
+              <th>Machine</th>
+              <th>Task / Description</th>
+              <th>Assigned Tech</th>
+              <th>Scheduled Date</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="workOrderTableBody">
+            <!-- Dynamically Rendered -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Schedule Maintenance Modal -->
+  <div id="scheduleModal" class="modal-overlay hidden">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Schedule Work Order</h3>
+        <button class="close-btn" onclick="closeScheduleModal()">&times;</button>
+      </div>
+      <form id="scheduleForm" onsubmit="handleScheduleMaintenance(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Select Machine *</label>
+            <select id="workMachine" required class="form-control">
+              <!-- Dynamically Populated from MachineStore -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Task Description *</label>
+            <input type="text" id="workTask" placeholder="e.g. Bearing lubrication, belt inspection" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Assigned Technician *</label>
+              <input type="text" id="workTech" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="form-group">
+              <label>Priority *</label>
+              <select id="workPriority">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Scheduled Date *</label>
+            <input type="date" id="workDate" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeScheduleModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Work Order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="machine-store.js"></script>
+  <script>
+    Auth.checkAuth();
+
+    const MAINTENANCE_STORE_KEY = 'mg_maintenance_orders';
+
+    const DEFAULT_ORDERS = [
+      {
+        id: 'WO-801',
+        machineId: 'MTR-004',
+        machineName: 'Motor-04',
+        task: 'Bearing Alignment & Sensor Recalibration',
+        technician: 'Marcus Vance',
+        date: '2026-09-22',
+        priority: 'High',
+        status: 'In Progress'
+      },
+      {
+        id: 'WO-802',
+        machineId: 'PMP-003',
+        machineName: 'Pump-03',
+        task: 'Hydraulic Seal Inspection',
+        technician: 'Sarah Jenkins',
+        date: '2026-09-25',
+        priority: 'Medium',
+        status: 'Pending'
+      }
+    ];
+
+    function getOrders() {
+      const data = localStorage.getItem(MAINTENANCE_STORE_KEY);
+      if (!data) {
+        localStorage.setItem(MAINTENANCE_STORE_KEY, JSON.stringify(DEFAULT_ORDERS));
+        return DEFAULT_ORDERS;
+      }
+      return JSON.parse(data);
+    }
+
+    function saveOrders(orders) {
+      localStorage.setItem(MAINTENANCE_STORE_KEY, JSON.stringify(orders));
+    }
+
+    function renderWorkOrders() {
+      const tbody = document.getElementById('workOrderTableBody');
+      const statusFilter = document.getElementById('statusFilter').value;
+      const priorityFilter = document.getElementById('priorityFilter').value;
+
+      const orders = getOrders();
+
+      const filtered = orders.filter(o => {
+        const matchesStatus = statusFilter === 'ALL' || o.status === statusFilter;
+        const matchesPriority = priorityFilter === 'ALL' || o.priority === priorityFilter;
+        return matchesStatus && matchesPriority;
+      });
+
+      tbody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" class="empty-cell">No maintenance tasks scheduled.</td></tr>`;
+        return;
+      }
+
+      filtered.forEach(o => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${o.id}</strong></td>
+          <td>
+            <strong>${o.machineName}</strong>
+            <div class="sub-text">${o.machineId}</div>
+          </td>
+          <td>${o.task}</td>
+          <td>${o.technician}</td>
+          <td>${o.date}</td>
+          <td><span class="prio-tag prio-${o.priority.toLowerCase()}">${o.priority}</span></td>
+          <td><span class="wo-status wo-${o.status.toLowerCase().replace(' ', '-')}">${o.status}</span></td>
+          <td>
+            ${o.status !== 'Completed' ? `
+              <button class="btn btn-outline btn-sm" onclick="advanceStatus('${o.id}')">
+                ${o.status === 'Pending' ? 'Start' : 'Complete'}
+              </button>
+            ` : '<span class="text-muted">Done</span>'}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openScheduleModal() {
+      const select = document.getElementById('workMachine');
+      select.innerHTML = '';
+      const machines = MachineStore.getMachines();
+      
+      machines.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = JSON.stringify({ id: m.id, name: m.name });
+        opt.textContent = `${m.name} (${m.id})`;
+        select.appendChild(opt);
+      });
+
+      // Default date to today
+      document.getElementById('workDate').value = new Date().toISOString().split('T')[0];
+      document.getElementById('scheduleModal').classList.remove('hidden');
+    }
+
+    function closeScheduleModal() {
+      document.getElementById('scheduleModal').classList.add('hidden');
+      document.getElementById('scheduleForm').reset();
+    }
+
+    function handleScheduleMaintenance(e) {
+      e.preventDefault();
+      const machineObj = JSON.parse(document.getElementById('workMachine').value);
+      
+      const newOrder = {
+        id: 'WO-' + Math.floor(800 + Math.random() * 100),
+        machineId: machineObj.id,
+        machineName: machineObj.name,
+        task: document.getElementById('workTask').value.trim(),
+        technician: document.getElementById('workTech').value.trim(),
+        priority: document.getElementById('workPriority').value,
+        date: document.getElementById('workDate').value,
+        status: 'Pending'
+      };
+
+      const orders = getOrders();
+      orders.unshift(newOrder);
+      saveOrders(orders);
+      
+      closeScheduleModal();
+      renderWorkOrders();
+    }
+
+    function advanceStatus(id) {
+      const orders = getOrders();
+      const order = orders.find(o => o.id === id);
+      if (order) {
+        if (order.status === 'Pending') order.status = 'In Progress';
+        else if (order.status === 'In Progress') order.status = 'Completed';
+        saveOrders(orders);
+        renderWorkOrders();
+      }
+    }
+
+    renderWorkOrders();
+  </script>
+</body>
+</html>
